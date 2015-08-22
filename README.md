@@ -2,6 +2,6 @@
 
 Implementation of a Naive Bayes classifier to predict gender
 
-historical data source:
+Name/Gender Source:
 http://www.ssa.gov/oact/babynames/names.zip
 
