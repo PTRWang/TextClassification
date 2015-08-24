@@ -1,9 +1,37 @@
 import os
 import re
 
+#Creates two separate lists that are the male/female names
+def getNames():
+		compNames = extractNames()
+		male = list()
+		female = list()
+
+		#SORTING NAMES:
+		#counts[0] represents the male names
+		#counts[1] represnets teh female names
+		#we are traversing through all the names in the
+		#dictionary
+		
+		for n in compNames:
+			
+			counts = compNames[n]
+			
+			#tuple that holds the name, # of Males, # of Females
+			tuple=(n, counts[0], counts[1])
+				
+			if counts[0] > counts[1]:
+				male.append(tuple)
+			elif counts[1] > counts[0]:
+				female.append(tuple)
+
+		data = (male, female)
+
+		return data
+
 # store name/gender data in a dictionary
 # returns the dictionary for analysis
-def getNames():
+def extractNames():
 
 	filename = "names/yob"
 	
@@ -24,6 +52,7 @@ def getNames():
 		
 		# read line by line
 		for line in text_file: 
+			#logic to grab the necessary data from txtfile
 			line = line.split(',')
 			name = line[0]
 			gender = genderMap[line[1]]
